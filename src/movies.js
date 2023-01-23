@@ -119,9 +119,28 @@ function orderAlphabetically(moviesArray) {
 
     let cloneOrderAlphabetically = structuredClone(moviesArray);
 
+    let orderTitle = cloneOrderAlphabetically.sort((elem2,elem1)=>{
+        
+        if(elem2.title > elem1.title){
+            return 1
+        }else if(elem2.title < elem1.title){
+            return 2
+        }else{
+            return 0
+        }
 
+    })
+    // console.log(orderTitle)
     
-    let arrTwentyFirst = cloneOrderAlphabetically.slice(0,20)
+    let stringTitle = " ";
+    orderTitle.forEach((arr)=>{
+        // console.log(arr)
+        stringTitle += arr.title + " "
+    })
+    console.log(stringTitle) 
+
+    let arrTwentyFirst = orderTitle.slice(0,20)
+
 
    
     let twentyFirst = []
@@ -129,23 +148,35 @@ function orderAlphabetically(moviesArray) {
         twentyFirst.push(elem.title)
     })
     
-    twentyFirst.sort((elem1, elem2)=>{
-        if(elem2.title > elem1.title){
-            return 1
-        }else if(elem2.title < elem1.title){
-            return -1
-        }else{
-            return 0
-        }
-    })
-     
+    
 
     return twentyFirst
 
 }
 
 // BONUS - Iteration 7: Time Format - Turn duration of the movies from hours to minutes
-function turnHoursToMinutes(moviesArray) {}
+function turnHoursToMinutes(moviesArray) {
+
+    let cloneArrHourToMinutes = structuredClone (moviesArray);
+
+    let numDuration =cloneArrHourToMinutes.map((elem)=>{
+        return (elem.duration)
+    })
+    return numDuration
+    // console.log(numDuration)
+
+    // function secondsToString(seconds) {
+    //     var hour = Math.floor(seconds / 3600);
+    //     hour = (hour < 10)? '0' + hour : hour;
+    //     var minute = Math.floor((seconds / 60) % 60);
+    //     minute = (minute < 10)? '0' + minute : minute;
+    //     var second = seconds % 60;
+    //     second = (second < 10)? '0' + second : second;
+    //     return hour + ':' + minute + ':' + second;
+    //   }
+
+      return cloneArrHourToMinutes
+}
 
 // BONUS - Iteration 8: Best yearly score average - Best yearly score average
 function bestYearAvg(moviesArray) {}
