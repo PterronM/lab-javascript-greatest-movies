@@ -162,22 +162,41 @@ function turnHoursToMinutes(moviesArray) {
     let numDuration =cloneArrHourToMinutes.map((elem)=>{
         return (elem.duration)
     })
-    return numDuration
     // console.log(numDuration)
-
-    // function secondsToString(seconds) {
-    //     var hour = Math.floor(seconds / 3600);
-    //     hour = (hour < 10)? '0' + hour : hour;
-    //     var minute = Math.floor((seconds / 60) % 60);
-    //     minute = (minute < 10)? '0' + minute : minute;
-    //     var second = seconds % 60;
-    //     second = (second < 10)? '0' + second : second;
-    //     return hour + ':' + minute + ':' + second;
-    //   }
+    // return numDuration
+ 
 
       return cloneArrHourToMinutes
 }
 
 // BONUS - Iteration 8: Best yearly score average - Best yearly score average
-function bestYearAvg(moviesArray) {}
+function bestYearAvg(moviesArray) {
+    if(moviesArray.length === 0){
+        return null
+    }
+
+    //ordenadas por año
+    let orderYear = moviesArray.sort((elem2,elem1)=>{
+    if(elem2.year > elem1.year){
+        return 1
+    }else if(elem2.year < elem1.year){
+        return -1
+    }else{
+        return 0
+    }
+
+    })
+
+    let promedio = orderYear.map((elem)=>{
+        console.log( elem.score )
+    })
+
+ 
+
+
+
+return moviesArray
+}
+let x = bestYearAvg (movies)
+console.log(x)
 // 
